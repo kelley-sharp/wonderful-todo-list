@@ -1,68 +1,93 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Wonderschool Coding Challenge
 
-## Available Scripts
+## Introduction
 
-In the project directory, you can run:
+Thanks for your interest in joining the Wonderschool engineering team! Before we proceed with more
+formal interviews, we ask that all candidates submit a coding challenge. The coding challenge is
+a foundational piece of our process and it's referenced later in our process during the technical 
+interviews.
 
-### `npm start`
+For an experienced web developer, the coding challenge should not take longer than **2-3 hours** to 
+complete.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If at any point you have questions concerning the coding challenge and/or interview process, please
+do not hesitate to email engineering@wonderschool.com.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Coding Challenge
 
-### `npm test`
+The coding challenge revolves around building a task list. Tasks belong to groups and can have
+dependencies on one another (i.e. if task X depends on task Y, task X cannot be completed until
+task Y is completed). The challenge includes 3 components:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Build React-based UI
+* Design database schema
+* Document API
 
-### `npm run build`
+### Build React-based UI
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The UI consists of 2 screens:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+* **Overview**: Displays a list of all the groups along with their completion status. Clicking on 
+  a group should render the detail screen.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Detail**: Displays a list of all the tasks in the selected group and allows the user to toggle 
+  the completion status of unlocked tasks.
 
-### `npm run eject`
+The screens should look like this:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![screen design](https://user-images.githubusercontent.com/314351/56453206-d1ec2580-62f3-11e9-83d7-67aff2e1deef.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The data you should use to populate your implementation is available at _public/data.json_ and can 
+be loaded from http://localhost:3000/data.json. SVG assets for the icons used in the design 
+also live in _public/_ and can be loaded similarly.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Some things to keep in mind:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Locked tasks cannot have their completion status toggled
+* Tasks remain locked until all of their dependencies have been completed
+* Your implementation should resemble the above design
+* Feel free to introduce new dependencies, but try to keep things as simple as possible
+* We value well structured code that follows best practices
 
-## Learn More
+### Design Database Schema
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Design a schema in SQL to store the task list data. You can add the SQL code needed to create
+the schema to _schema.sql_. The schema should define all tables, columns, and constraints needed
+to store the task list data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Document API
 
-### Code Splitting
+In order to have a useful task list UX, the React app needs to be able to sync changes to a backend.
+Document what you think a well designed task list API would look like by listing the endpoints
+it'd be composed of and detailing the following for each endpoint:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* HTTP method
+* URL
+* Request parameters
+* Response format
 
-### Analyzing the Bundle Size
+You only need to document this API, there's no need to implement any sort of backend functionality.
+Please use _api.md_ to describe your design in whatever format you prefer.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Getting Started
 
-### Making a Progressive Web App
+To get started, clone this repo to your local machine. Next you'll want to install the dependencies
+and fire up the app:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+npm install
+npm start
+```
 
-### Advanced Configuration
+At this point, the app should be running in development mode and any local modifications you make
+will be automatically detected and result in the app to reload.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+You should only need to add/modify code in the _src/_ directory.
 
-### Deployment
+## Submission
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+To submit your coding challenge, please email engineering@wonderschool.com with either a zip file
+of your project or a publicly accessible link to it. The Wonderschool engineering team tries to 
+review all submitted coding challenges within 1 business day. 
 
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Thanks for taking the time to do this coding challenge and here's hoping we talk soon!
