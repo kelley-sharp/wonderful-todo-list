@@ -46,7 +46,8 @@ Some things to keep in mind:
 * Locked tasks cannot have their completion status toggled
 * Tasks remain locked until all of their dependencies have been completed
 * Your implementation should resemble the above design
-* Feel free to introduce new dependencies, but try to keep things as simple as possible
+* Please don't introduce any new dependencies, you should have everything you need to complete
+  the challenge
 * We value well structured code that follows best practices
 
 ### Design Database Schema
