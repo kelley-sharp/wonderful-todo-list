@@ -87,8 +87,14 @@ You should only need to add/modify code in the _src/_ directory.
 
 ## Submission
 
-To submit your coding challenge, please email engineering@wonderschool.com with either a zip file
-of your project or a publicly accessible link to it. The Wonderschool engineering team tries to 
-review all submitted coding challenges within 1 business day. 
+To submit your coding challenge, commit all your changes to the `master` branch and run the 
+following command:
+
+```
+git bundle create coding-challenge.bundle HEAD master
+```
+
+Email the the generated _coding-challenge.bundle_ file to engineering@wonderschool.com. We do our 
+best to review and respond to submissions within 1-2 business days.
 
 Thanks for taking the time to do this coding challenge and here's hoping we talk soon!
