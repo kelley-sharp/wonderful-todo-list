@@ -1,0 +1,52 @@
+.group-detail__container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.task {
+  border-left: 0.05em solid;
+  padding: 1em;
+}
+
+.completed-task {
+  text-decoration: line-through;
+}
+
+.display-none {
+  display: none;
+}
+
+.lock {
+  padding: 1em;
+}
+
+.task__container {
+  display: flex;
+  flex-flow: row nowrap;
+  border-bottom: 0.05em solid;
+}
+
+.task-list__container {
+  width: 50%;
+  display: grid;
+  grid: auto-flow / 1fr;
+  border: 0.05em solid;
+  border-bottom: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.check-mark {
+  padding: 1em;
+  width: 12px;
+  color: #22d31a;
+}
+
+button {
+  background-color: #f7b8ad;
+  border-radius: 10px;
+  padding: 1em;
+}
