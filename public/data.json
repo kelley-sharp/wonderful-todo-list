@@ -53,6 +53,6 @@
     "group": "Build Airplane",
     "task": "Have a snack",
     "dependencyIds": [],
-    "completedAt": "complete"
+    "completedAt": null
   }
 ]

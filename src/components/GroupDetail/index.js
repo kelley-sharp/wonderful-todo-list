@@ -4,13 +4,18 @@ import '../App/styles.css';
 class GroupDetail extends Component {
   render() {
     return (
-      <div className="group-detail__container">
+      <div className="outer__container">
         <h2>{this.props.groupName}</h2>
-        <div className="task-list__container">
+        <div className="list__container">
           {this.props.groupTasks.map(task => {
             return (
-              <div className="task__container">
-                {this.props.checkTaskStatus(task)}
+              <div
+                onClick={() => this.props.toggleComplete(task)}
+                key={task.id}
+                className="item__container"
+              >
+                {this.props.renderTask(task)}
+
                 <div
                   className={
                     task.completedAt !== null
