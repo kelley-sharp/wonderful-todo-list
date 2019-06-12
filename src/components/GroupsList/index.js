@@ -8,7 +8,7 @@ class GroupsList extends Component {
         <div className="list__container">
           {this.props.groupNames.map((group, idx) => {
             return (
-              <div className="item__container">
+              <div key={group} className="item__container">
                 <div className="box align">{this.props.renderGroup(group)}</div>
                 <div
                   className={

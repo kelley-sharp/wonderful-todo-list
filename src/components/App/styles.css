@@ -19,11 +19,6 @@ h2 {
   padding: 1em;
 }
 
-.align {
-  display: flex;
-  align-items: center;
-}
-
 .item__container {
   display: flex;
   flex-flow: row nowrap;

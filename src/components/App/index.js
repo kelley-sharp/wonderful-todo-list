@@ -32,7 +32,6 @@ export default class App extends Component {
   }
 
   renderGroup = group => {
-    console.log('group', group);
     if (
       this.state.tasks
         .filter(task => task.group === group)
@@ -113,31 +112,40 @@ export default class App extends Component {
     }
   };
 
-  toggleComplete = task => {
+  toggleComplete = clickedTask => {
     let newTasks;
 
     const newCompletedTaskIds = new Set([...this.state.completedTaskIds]);
 
-    //change the selected task
-    const taskId = task.id;
+    // the ID of the task we clicked on
+    const clickedTaskId = clickedTask.id;
 
-    if (task.completedAt) {
+    if (clickedTask.completedAt) {
       //toggle to incomplete
-      newTasks = this.state.tasks.map(task => {
-        const newTask = { ...task };
-        if (newTask.id === taskId) {
+      newTasks = this.state.tasks.map(oldTask => {
+        // make a copy of the task
+        const newTask = { ...oldTask };
+        // toggle the task we're looking for
+        if (newTask.id === clickedTaskId) {
           newTask.completedAt = null;
+          newCompletedTaskIds.delete(newTask.id);
+        } // also toggle any dependent tasks
+        else if (
+          newTask.dependencyIds.includes(clickedTaskId) &&
+          newTask.completedAt !== null
+        ) {
+          newTask.completedAt = null;
+          newCompletedTaskIds.delete(newTask.id);
         }
         return newTask;
       });
-      newCompletedTaskIds.delete(taskId);
     } else {
       //toggle to complete
-      newTasks = this.state.tasks.map(task => {
-        const newTask = { ...task };
-        if (newTask.id === taskId) {
+      newTasks = this.state.tasks.map(oldTask => {
+        const newTask = { ...oldTask };
+        if (newTask.id === clickedTaskId) {
           let allComplete = true;
-          for (let dependencyId of task.dependencyIds) {
+          for (let dependencyId of newTask.dependencyIds) {
             //if task has incomplete dependencies
             if (!this.state.completedTaskIds.has(dependencyId)) {
               alert('this task is dependent on the completion of other tasks');
@@ -147,7 +155,7 @@ export default class App extends Component {
           }
           if (allComplete) {
             newTask.completedAt = new Date();
-            newCompletedTaskIds.add(taskId);
+            newCompletedTaskIds.add(clickedTaskId);
           }
         }
         return newTask;
