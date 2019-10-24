@@ -2,7 +2,7 @@
 
 ## Challenge
 
-This coding challenge I created for myself revolves around building a task list. Tasks belong to groups and can have
+This coding challenge Jake Harding passed on to me revolves around building a task list. Tasks belong to groups and can have
 dependencies on one another (i.e. if task X depends on task Y, task X cannot be completed until
 task Y is completed). The challenge includes 3 components:
 
